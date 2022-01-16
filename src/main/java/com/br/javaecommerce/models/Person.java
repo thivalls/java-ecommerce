@@ -15,7 +15,7 @@ public abstract class Person {
     private String email;
     private String phone;
 
-    @OneToMany (mappedBy = "person")
+    @OneToMany (mappedBy = "person", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Address> addresses = new ArrayList<>();
 
     public Long getId() {
