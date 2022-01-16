@@ -4,7 +4,7 @@ public enum AddressType {
     DELIVERY("Entrega"),
     BILLING("Cobrança");
 
-    private String description;
+    private final String description;
 
     AddressType(String description) {
         this.description = description;
