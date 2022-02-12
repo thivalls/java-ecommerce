@@ -1,12 +1,12 @@
 package com.br.javaecommerce.enums;
 
-public enum _PaymentMethods {
+public enum PaymentMethods {
     CREDITCARD("Cartão de crédito"),
     BOLETO("Boleto");
 
     private final String description;
 
-    _PaymentMethods(String description) {
+    PaymentMethods(String description) {
         this.description = description;
     }
 
