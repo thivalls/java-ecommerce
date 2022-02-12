@@ -3,6 +3,7 @@ package com.br.javaecommerce.models;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,10 @@ public class Product {
 
     private String unity;
     private String name;
+
+    @Column(columnDefinition = "text")
     private String description;
+    
     private Double weight;
     private Double width;
     private Double height;
