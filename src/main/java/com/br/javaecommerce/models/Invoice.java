@@ -39,6 +39,88 @@ public class Invoice {
     @OneToOne
     private BillToPay billToPay;
 
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNumber() {
+        return this.number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getSerialNumber() {
+        return this.serialNumber;
+    }
+
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public BigDecimal getTotal() {
+        return this.total;
+    }
+
+    public void setTotal(BigDecimal total) {
+        this.total = total;
+    }
+
+    public BigDecimal getDiscount() {
+        return this.discount;
+    }
+
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
+    }
+
+    public BigDecimal getIcms() {
+        return this.icms;
+    }
+
+    public void setIcms(BigDecimal icms) {
+        this.icms = icms;
+    }
+
+    public Date getTransaction() {
+        return this.transaction;
+    }
+
+    public void setTransaction(Date transaction) {
+        this.transaction = transaction;
+    }
+
+    public Person getPerson() {
+        return this.person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public BillToPay getBillToPay() {
+        return this.billToPay;
+    }
+
+    public void setBillToPay(BillToPay billToPay) {
+        this.billToPay = billToPay;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (o == this)

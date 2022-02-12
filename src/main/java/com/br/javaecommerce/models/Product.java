@@ -57,6 +57,20 @@ public class Product {
         return this.name;
     }
 
+
+    public Boolean isActive() {
+        return this.active;
+    }
+
+    public Boolean getActive() {
+        return this.active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+
     public void setName(String name) {
         this.name = name;
     }
