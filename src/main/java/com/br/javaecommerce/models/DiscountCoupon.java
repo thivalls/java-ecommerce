@@ -69,15 +69,18 @@ public class DiscountCoupon {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return id.equals(person.id);
+        if (o == this)
+            return true;
+        if (!(o instanceof DiscountCoupon)) {
+            return false;
+        }
+        DiscountCoupon discountCoupon = (DiscountCoupon) o;
+        return Objects.equals(id, discountCoupon.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hashCode(id);
     }
 
 }
