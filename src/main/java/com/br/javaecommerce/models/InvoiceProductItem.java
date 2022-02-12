@@ -1,6 +1,7 @@
 package com.br.javaecommerce.models;
 
-import javax.annotation.Generated;
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
@@ -29,4 +30,85 @@ public class InvoiceProductItem {
 
     @Column(nullable = false)
     private Double quantity;
+
+
+    public InvoiceProductItem() {
+    }
+
+    public InvoiceProductItem(long id, Product product, Invoice invoice, Double quantity) {
+        this.id = id;
+        this.product = product;
+        this.invoice = invoice;
+        this.quantity = quantity;
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Product getProduct() {
+        return this.product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Invoice getInvoice() {
+        return this.invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    public Double getQuantity() {
+        return this.quantity;
+    }
+
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
+
+    public InvoiceProductItem id(long id) {
+        setId(id);
+        return this;
+    }
+
+    public InvoiceProductItem product(Product product) {
+        setProduct(product);
+        return this;
+    }
+
+    public InvoiceProductItem invoice(Invoice invoice) {
+        setInvoice(invoice);
+        return this;
+    }
+
+    public InvoiceProductItem quantity(Double quantity) {
+        setQuantity(quantity);
+        return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof InvoiceProductItem)) {
+            return false;
+        }
+        InvoiceProductItem invoiceProductItem = (InvoiceProductItem) o;
+        return id == invoiceProductItem.id && Objects.equals(product, invoiceProductItem.product) && Objects.equals(invoice, invoiceProductItem.invoice) && Objects.equals(quantity, invoiceProductItem.quantity);
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
 }
