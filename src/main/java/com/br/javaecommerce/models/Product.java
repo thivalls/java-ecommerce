@@ -20,6 +20,8 @@ public class Product {
     private String unity;
     private String name;
 
+    private Boolean active = Boolean.TRUE;
+
     @Column(columnDefinition = "text")
     private String description;
     
