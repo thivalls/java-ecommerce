@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "coupons")
-public class DiscountCoupon {
+public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -71,10 +71,10 @@ public class DiscountCoupon {
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof DiscountCoupon)) {
+        if (!(o instanceof Coupon)) {
             return false;
         }
-        DiscountCoupon discountCoupon = (DiscountCoupon) o;
+        Coupon discountCoupon = (Coupon) o;
         return Objects.equals(id, discountCoupon.id);
     }
 

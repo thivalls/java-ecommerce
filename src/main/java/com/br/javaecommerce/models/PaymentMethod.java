@@ -1,5 +1,7 @@
 package com.br.javaecommerce.models;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,4 +38,22 @@ public class PaymentMethod {
     public void setName(String name) {
         this.name = name;
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof PaymentMethod)) {
+            return false;
+        }
+        PaymentMethod paymentMethod = (PaymentMethod) o;
+        return Objects.equals(id, paymentMethod.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
 }
