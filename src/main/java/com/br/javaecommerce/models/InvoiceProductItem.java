@@ -24,9 +24,9 @@ public class InvoiceProductItem {
     @JoinColumn(name = "product_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "product_item_fk"))
     private Product product;
 
-    @ManyToOne(targetEntity = Invoice.class)
+    @ManyToOne(targetEntity = PurchaseInvoice.class)
     @JoinColumn(name = "invoice_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "invoice_item_fk"))
-    private Invoice invoice;
+    private PurchaseInvoice invoice;
 
     @Column(nullable = false)
     private Double quantity;
@@ -35,7 +35,7 @@ public class InvoiceProductItem {
     public InvoiceProductItem() {
     }
 
-    public InvoiceProductItem(long id, Product product, Invoice invoice, Double quantity) {
+    public InvoiceProductItem(long id, Product product, PurchaseInvoice invoice, Double quantity) {
         this.id = id;
         this.product = product;
         this.invoice = invoice;
@@ -58,11 +58,11 @@ public class InvoiceProductItem {
         this.product = product;
     }
 
-    public Invoice getInvoice() {
+    public PurchaseInvoice getInvoice() {
         return this.invoice;
     }
 
-    public void setInvoice(Invoice invoice) {
+    public void setInvoice(PurchaseInvoice invoice) {
         this.invoice = invoice;
     }
 
@@ -84,7 +84,7 @@ public class InvoiceProductItem {
         return this;
     }
 
-    public InvoiceProductItem invoice(Invoice invoice) {
+    public InvoiceProductItem invoice(PurchaseInvoice invoice) {
         setInvoice(invoice);
         return this;
     }
@@ -94,6 +94,7 @@ public class InvoiceProductItem {
         return this;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -102,13 +103,11 @@ public class InvoiceProductItem {
             return false;
         }
         InvoiceProductItem invoiceProductItem = (InvoiceProductItem) o;
-        return id == invoiceProductItem.id && Objects.equals(product, invoiceProductItem.product) && Objects.equals(invoice, invoiceProductItem.invoice) && Objects.equals(quantity, invoiceProductItem.quantity);
+        return id == invoiceProductItem.id;
     }
-
 
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
     }
-
 }

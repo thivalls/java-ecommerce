@@ -16,8 +16,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "invoices")
-public class Invoice {
+@Table(name = "purchase_invoices")
+public class PurchaseInvoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -125,10 +125,10 @@ public class Invoice {
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof Invoice)) {
+        if (!(o instanceof PurchaseInvoice)) {
             return false;
         }
-        Invoice invoice = (Invoice) o;
+        PurchaseInvoice invoice = (PurchaseInvoice) o;
         return id == invoice.id;
     }
 
