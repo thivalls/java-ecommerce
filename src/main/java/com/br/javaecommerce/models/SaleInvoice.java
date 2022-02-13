@@ -3,10 +3,14 @@ package com.br.javaecommerce.models;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +28,10 @@ public class SaleInvoice {
     private String xml;
     @Column(columnDefinition = "text")
     private String pdf;
+
+    @OneToOne
+    @JoinColumn(name = "order_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "sale_invoice_order_fk"))
+    private Order order;
 
 
     public SaleInvoice() {
@@ -85,6 +93,16 @@ public class SaleInvoice {
     public void setPdf(String pdf) {
         this.pdf = pdf;
     }
+
+
+    public Order getOrder() {
+        return this.order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
 
     public SaleInvoice id(long id) {
         setId(id);

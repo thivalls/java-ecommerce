@@ -40,7 +40,7 @@ public class Order {
     private BigDecimal discount;
     private BigDecimal shipping;
     private int daysForDelivery;
-    
+
     @Temporal(TemporalType.DATE)
     private Date saleDate;
 
@@ -59,11 +59,12 @@ public class Order {
     @JoinColumn(name = "coupon_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "order_coupon_fk"))
     private Coupon coupon;
 
-
     public Order() {
     }
 
-    public Order(long id, Person person, Address billingAddress, Address shippingAddress, BigDecimal total, BigDecimal discount, BigDecimal shipping, int daysForDelivery, Date saleDate, Date deliveryDate, SaleInvoice saleInvoice, PaymentMethod paymentMethod, Coupon coupon) {
+    public Order(long id, Person person, Address billingAddress, Address shippingAddress, BigDecimal total,
+            BigDecimal discount, BigDecimal shipping, int daysForDelivery, Date saleDate, Date deliveryDate,
+            SaleInvoice saleInvoice, PaymentMethod paymentMethod, Coupon coupon) {
         this.id = id;
         this.person = person;
         this.billingAddress = billingAddress;
@@ -247,7 +248,6 @@ public class Order {
         setCoupon(coupon);
         return this;
     }
-
 
     @Override
     public boolean equals(Object o) {
