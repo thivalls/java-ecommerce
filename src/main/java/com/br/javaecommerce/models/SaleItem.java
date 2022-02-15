@@ -20,11 +20,11 @@ public class SaleItem {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "product_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "sale_item_product_fk"))
+    @JoinColumn(name = "product_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "sale_item_product_fk"))
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "order_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "sale_item_order_fk"))
+    @JoinColumn(name = "order_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "sale_item_order_fk"))
     private Order order;
 
     private Double quantity;
