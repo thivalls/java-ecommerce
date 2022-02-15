@@ -2,7 +2,6 @@ package com.br.javaecommerce.models;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -27,11 +26,10 @@ public class Review {
     @ManyToOne(targetEntity = Person.class)
     @JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(name = "reviews_person_fk", value = ConstraintMode.CONSTRAINT))
     private Person person;
-    
+
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "reviews_product_fk"))
     private Product product;
-
 
     public Review() {
     }
