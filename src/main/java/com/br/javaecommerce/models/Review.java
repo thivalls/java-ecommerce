@@ -20,10 +20,9 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(columnDefinition = "text")
     private String description;
 
-    private int invoice;
+    private Integer invoice;
 
     @ManyToOne(targetEntity = Person.class)
     @JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(name = "reviews_person_fk", value = ConstraintMode.CONSTRAINT))
