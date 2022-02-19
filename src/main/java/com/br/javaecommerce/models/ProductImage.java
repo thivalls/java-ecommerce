@@ -18,16 +18,15 @@ public class ProductImage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable = false)
     private String image;
     
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable = false)
     private String thumb;
 
     @ManyToOne(targetEntity = Product.class)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
-
 
     public ProductImage() {
     }

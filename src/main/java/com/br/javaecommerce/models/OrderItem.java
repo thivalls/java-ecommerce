@@ -2,6 +2,7 @@ package com.br.javaecommerce.models;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -13,8 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "sale_items")
-public class SaleItem {
+@Table(name = "order_item")
+public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -27,13 +28,13 @@ public class SaleItem {
     @JoinColumn(name = "order_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "sale_item_order_fk"))
     private Order order;
 
+    @Column(nullable = false)
     private Double quantity;
 
-
-    public SaleItem() {
+    public OrderItem() {
     }
 
-    public SaleItem(long id, Product product, Order order, Double quantity) {
+    public OrderItem(long id, Product product, Order order, Double quantity) {
         this.id = id;
         this.product = product;
         this.order = order;
@@ -72,22 +73,22 @@ public class SaleItem {
         this.quantity = quantity;
     }
 
-    public SaleItem id(long id) {
+    public OrderItem id(long id) {
         setId(id);
         return this;
     }
 
-    public SaleItem product(Product product) {
+    public OrderItem product(Product product) {
         setProduct(product);
         return this;
     }
 
-    public SaleItem order(Order order) {
+    public OrderItem order(Order order) {
         setOrder(order);
         return this;
     }
 
-    public SaleItem quantity(Double quantity) {
+    public OrderItem quantity(Double quantity) {
         setQuantity(quantity);
         return this;
     }
@@ -96,10 +97,10 @@ public class SaleItem {
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof SaleItem)) {
+        if (!(o instanceof OrderItem)) {
             return false;
         }
-        SaleItem saleItem = (SaleItem) o;
+        OrderItem saleItem = (OrderItem) o;
         return id == saleItem.id;
     }
 
