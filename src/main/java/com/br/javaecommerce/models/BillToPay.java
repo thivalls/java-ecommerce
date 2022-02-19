@@ -1,7 +1,10 @@
 package com.br.javaecommerce.models;
 
-import com.br.javaecommerce.enums.BillPaymentStatus;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -15,9 +18,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.Objects;
+
+import com.br.javaecommerce.enums.BillPaymentStatus;
 
 @Entity
 @Table(name = "payments")
@@ -26,16 +28,21 @@ public class BillToPay {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String description;
+
+    @Column(nullable = false)
     private BigDecimal total;
     private BigDecimal discount;
 
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dueDate;
 
     @Temporal(TemporalType.DATE)
     private Date PaymentDate;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private BillPaymentStatus status;
 

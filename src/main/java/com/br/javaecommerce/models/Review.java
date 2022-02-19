@@ -20,6 +20,7 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable = false)
     private String description;
 
     @Column(nullable = false)
