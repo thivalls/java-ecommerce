@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,19 +17,29 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "purchase_invoices")
+@Table(name = "purchase_invoice")
 public class PurchaseInvoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable = false)
     private String number;
+
+    @Column(nullable = false)
     private String serialNumber;
+
     private String description;
+    
+    @Column(nullable = false)
     private BigDecimal total;
+    
     private BigDecimal discount;
+    
+    @Column(nullable = false)
     private BigDecimal icms;
 
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date transaction;
 
@@ -37,6 +48,7 @@ public class PurchaseInvoice {
     private Person person;
 
     @OneToOne
+    @JoinColumn(name = "payment_id", nullable = false)
     private BillToPay billToPay;
 
 

@@ -14,25 +14,29 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "sale_invoices")
+@Table(name = "sale_invoice")
 public class SaleInvoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable = false)
     private String number;
+
+    @Column(nullable = false)
     private String serialNumber;
+    
+    @Column(nullable = false)
     private String type;
 
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable =  false)
     private String xml;
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable =  false)
     private String pdf;
 
     @OneToOne
-    @JoinColumn(name = "order_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "sale_invoice_order_fk"))
+    @JoinColumn(name = "order_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "sale_invoice_order_fk"))
     private Order order;
-
 
     public SaleInvoice() {
     }
@@ -133,7 +137,6 @@ public class SaleInvoice {
         setPdf(pdf);
         return this;
     }
-
 
     @Override
     public boolean equals(Object o) {

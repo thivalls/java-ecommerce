@@ -20,11 +20,11 @@ public class InvoiceProductItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(targetEntity = Product.class)
+    @ManyToOne
     @JoinColumn(name = "product_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "product_item_fk"))
     private Product product;
 
-    @ManyToOne(targetEntity = PurchaseInvoice.class)
+    @ManyToOne
     @JoinColumn(name = "invoice_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "invoice_item_fk"))
     private PurchaseInvoice invoice;
 
