@@ -2,6 +2,7 @@ package com.br.javaecommerce.models;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -21,7 +22,8 @@ public class Review {
 
     private String description;
 
-    private Integer invoice;
+    @Column(nullable = false)
+    private Integer rate;
 
     @ManyToOne(targetEntity = Person.class)
     @JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(name = "reviews_person_fk", value = ConstraintMode.CONSTRAINT))
@@ -37,7 +39,7 @@ public class Review {
     public Review(long id, String description, int invoice, Person person, Product product) {
         this.id = id;
         this.description = description;
-        this.invoice = invoice;
+        this.rate = invoice;
         this.person = person;
         this.product = product;
     }
@@ -56,14 +58,6 @@ public class Review {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getInvoice() {
-        return this.invoice;
-    }
-
-    public void setInvoice(int invoice) {
-        this.invoice = invoice;
     }
 
     public Person getPerson() {
@@ -92,10 +86,15 @@ public class Review {
         return this;
     }
 
-    public Review invoice(int invoice) {
-        setInvoice(invoice);
-        return this;
+
+    public Integer getRate() {
+        return this.rate;
     }
+
+    public void setRate(Integer rate) {
+        this.rate = rate;
+    }
+
 
     public Review person(Person person) {
         setPerson(person);
