@@ -2,6 +2,7 @@ package com.br.javaecommerce.models;
 
 import com.br.javaecommerce.enums.AddressType;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -20,13 +21,24 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @Column(nullable = false)
     private String street;
+
+    @Column(nullable = false)
     private String zipcode;
+    
+    @Column(nullable = false)
     private String number;
+    
     private String complement;
+    
+    @Column(nullable = false)
     private String neighborhood;
+    
+    @Column(nullable = false)
     private String state;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private AddressType type;
 
